@@ -1,0 +1,54 @@
+<hr />
+<hr />
+
+<h1>Welcome To GameCity: Experience the Online Gaming Experience</h1>
+
+<form [formGroup]="gameForm" (ngSubmit)="onSubmit()">
+  
+    <table>
+      <tr>
+        <td>Name</td>
+        <div class="form-group">
+        <td><input type="text" class="form-control" formControlName="name" pattern="[a-zA-Z]*" placeholder="Enter Name"> 
+          <div *ngIf="submitted &&gameForm.controls.name.errors" class="error">
+              <div class="text-danger" *ngIf="gameForm.controls.name.errors.required">name is required</div>
+              <div class="text-danger" *ngIf="gameForm.controls.name.errors.pattern">name is wrong</div>
+              
+              </div>
+              
+        </td>
+      </div>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <div class="form-group">
+        <td><input type="text" class="form-control" formControlName="address" placeholder="Enter Address"> 
+          <div *ngIf="submitted &&gameForm.controls.address.errors"class="error">
+              <div class="text-danger" *ngIf="gameForm.controls.address.errors.required">address is required</div>
+              </div>
+             
+        </td>
+      </div>
+      </tr>
+      <tr>
+        <td>Amount</td>
+        <div class="form-group">
+        <td><input type="number" class="form-control" [formControl]="amount"  placeholder="Enter Amount to add"> 
+          <!-- <div *ngIf="submitted &&gameForm.controls.amount.errors"class="error">
+              <div class="text-danger" *ngIf="gameForm.controls.amount.errors.required">Amount is required</div>
+              </div>             -->
+        </td>
+      </div>
+      </tr>
+
+    </table>
+    <button class="btn btn-success" (click) ="getAmount()">Buy Card</button>
+
+    <!-- <a class="text-left" [routerLink]="['/play']"><h3>Buy Card..</h3></a> -->
+
+
+    <br>
+     Note: 100 Rs will be deducted for service charges 
+
+
+</form>
