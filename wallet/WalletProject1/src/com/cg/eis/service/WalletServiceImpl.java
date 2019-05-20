@@ -1,68 +1,71 @@
 package com.cg.eis.service;
 
+import java.util.*;
+import com.cg.eis.bean.*;
+import com.cg.eis.dao.*;
 
+public class WalletServiceImpl implements WalletService{
+	AccountDao accountdao=new AccountDaoImpl();
+	
+	WalletService ws;
+	
+	@Override
+	public boolean validateMobile(String mobile) {
+		System.out.println("verifiying mobile "+mobile.matches(mobilePattern));
+		
+		return mobile.matches(mobilePattern);
+	}
 
-import java.util.Map;
+	@Override
+	public boolean createAccount(Account ac) {
+		// TODO Auto-generated method stub
+		return accountdao.createAccount(ac);
+	}
 
+	@Override
+	public Account getAccountByMobile(String mobileNo) {
+		// TODO Auto-generated method stub
+		return accountdao.getAccountByMobile(mobileNo);
+	}
 
+	@Override
+	public Map<String, Account> getAllAccount() {
+		// TODO Auto-generated method stub
+		return accountdao.getAllAccount();
+	}
 
-import com.cg.eis.bean.Account;
-import com.cg.eis.dao.AccountDao;
-import com.cg.eis.dao.AccountDaoImpl;
-public class WalletServiceImpl implements WalletService
-{
-  AccountDao accountdao = new AccountDaoImpl();
-  @Override
-  public boolean validateMobile(String mobile) {
-     // TODO Auto-generated method stub
-     return mobile.matches(mobilepattern);
-  }
-  @Override
-  public boolean createAccount(Account ac) {
-     // TODO Auto-generated method stub
-     return accountdao.createAccount(ac);
-     }
-  @Override
-  public Account getAccountByMobile(long mobileNo) {
-     // TODO Auto-generated method stub
-     return accountdao.getAccountByMobile(mobileNo);
-  }
-  @Override
-  public Map<Long, Account> getAllAccount() {
-     // TODO Auto-generated method stub
-     return accountdao.getAllAccount();
-  }
-  @Override
-  public boolean transferMoney(double amount, Account a1, Account a2) {
-     // TODO Auto-generated method stub
-     try 
-     {
-     double bal1 = a1.getBalance();
-     bal1=bal1-amount;
-     a1.setBalance(bal1);
-     double bal2 = a2.getBalance();
-     bal2 = bal2+amount;
-     a2.setBalance(bal2);
-     }
-     catch(Exception e)
-     {
-        e.printStackTrace();
-     }
-     return accountdao.transferMoney( a1, a2);
-  }
-  @Override
-  public boolean addMoney(double amount, Account a1) 
-  {
-     // TODO Auto-generated method stub
-     boolean b = false;
-     double bal = a1.getBalance();
-     bal = bal+amount;
-     a1.setBalance(bal);
-     return accountdao.updateAccount(a1);
-  }
-  @Override
-  public boolean deleteAccount(long mobile) {
-     // TODO Auto-generated method stub
-     return accountdao.deleteAccount(mobile);
-  }
+	@Override
+	public boolean transferMoney(double amount, Account a1, Account a2) {
+		double bal1=a1.getBalance();
+		bal1=bal1-amount;
+		a1.setBalance(bal1);
+		double bal2=a2.getBalance();
+		bal2=bal2+amount;
+		a2.setBalance(bal2);
+		return accountdao.transerferMoney(a1, a2);
+		
+	}
+
+	@Override
+	public boolean updateAccount(Account ac) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteAccount(String mobileNo) {
+		// TODO Auto-generated method stub
+		return accountdao.deleteAccount(mobileNo);
+	}
+
+	@Override
+	public boolean addMoney(double amount, Account ac) {
+		// TODO Auto-generated method stub
+		double bal3=ac.getBalance()+amount;
+		ac.setBalance(bal3);
+		return accountdao.addMoney(ac);
+	}
+
+	
+	
 }
