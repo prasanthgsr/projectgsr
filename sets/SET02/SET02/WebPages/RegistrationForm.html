@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"><head>
+<meta charset="utf-8">
+<title>	</title>
+<meta name="keywords" content="example, JavaScript Form Validation, Sample registration form" />
+<meta name="description" content="This document is an example of JavaScript Form Validation using a sample registration form. " />
+<link rel='stylesheet' href='RegistartionFormCSS.css' type='text/css' />
+<script src="RegistrationFormValidation.js"></script>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:Level msdt:dt="string">L1</mso:Level>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+</script>
+<style type="text/css"> 
+#Format
+{
+	font-family:Calibri;
+}
+
+#Format1
+{
+	font-family:Calibri;
+}
+</style>
+<body onLoad="document.registration.userid.focus();">
+<h1>Registration Form</h1>
+<p>Use tab keys to move from one input field to the next.</p>
+<form name='registration' onSubmit="return formValidation();">
+<ul>
+<li><label for="userid">User id:</label></li>
+<li><input type="text" id="usrID" name="userid" size="12" /></li>
+
+<li><label for="passid">Password:</label></li>
+<li><input type="password" id="pwd" name="passid" size="12" /></li>
+
+<li><label for="username">Name:</label></li>
+<li><input type="text" id="usrname" name="username" size="50" /></li>
+
+<li><label for="address">Address:</label></li>
+<li><input type="text" class="Format1" id="addr" name="address" size="50" /></li>
+
+<li><label for="country">Country:</label></li>
+<li><select name="country">
+<option selected="" value="Default">(Please select a country)</option>
+<option value="AF">Australia</option>
+<option value="AL">Canada</option>
+<option value="DZ">India</option>
+<option value="AS">Russia</option>
+<option value="AD">USA</option>
+</select></li>
+
+<li><label for="zip">ZIP Code:</label></li>
+<li><input type="text" name="zip" /></li>
+
+<li><label for="email">Email:</label></li>
+<li><input type="text" class="Format" name="email" size="50" /></li>
+
+<li><label id="gender">Sex:</label></li>
+<li><input type="radio" name="sex" value="Male" /><span>Male</span></li>
+<li><input type="radio" name="sex" value="Female" /><span>Female</span></li>
+
+<li><label>Language:</label></li>
+<li><input type="checkbox" name="en" value="en" checked /><span>English</span></li>
+<li><input type="checkbox" name="nonen" value="noen" /><span>Non English</span></li>
+
+<li><label for="desc">About:</label></li>
+
+<li><textarea name="desc" id="desc"></textarea></li>
+
+<li><input type="submit" name="submit" value="Submit" /></li>
+</ul>
+</form>
+</body>
+</html>
