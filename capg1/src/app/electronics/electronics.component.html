@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    .column {
+      float: left;
+      width: 50%;
+      padding: 5px;
+    }
+    
+    /* Clearfix (clear floats) */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <br/>
+    <div class="row">
+        <div class="column">
+         <a [routerLink]="['/mobiles']" ><img src="../../assets/images/mobile-logo.jpg" 
+         alt="Mobiles.jpg"></a>
+        </div>
+        <div class="column">
+            <a [routerLink]="['/tv']" > <img src="../../assets/images/curved-screen-tv.jpg" 
+              alt="Tv.jpg" height="200" width="200"></a>
+        </div>
+        
+      </div>
+      <div>
+        <a [routerLink]="['/mobiles']" style="text-decoration: underline"><b>Mobiles</b></a>
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+         &nbsp;&nbsp;
+        <a [routerLink]="['/tv']" style="text-decoration:underline"><b>TV</b></a>
+
+      </div>
+      
+</body>
+</html>
